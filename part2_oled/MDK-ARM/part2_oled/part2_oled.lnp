@@ -1,0 +1,28 @@
+--cpu Cortex-M3
+"part2_oled\startup_stm32f103xb.o"
+"part2_oled\main.o"
+"part2_oled\gpio.o"
+"part2_oled\i2c.o"
+"part2_oled\stm32f1xx_it.o"
+"part2_oled\stm32f1xx_hal_msp.o"
+"part2_oled\stm32f1xx_hal_gpio_ex.o"
+"part2_oled\stm32f1xx_hal_i2c.o"
+"part2_oled\stm32f1xx_hal.o"
+"part2_oled\stm32f1xx_hal_rcc.o"
+"part2_oled\stm32f1xx_hal_rcc_ex.o"
+"part2_oled\stm32f1xx_hal_gpio.o"
+"part2_oled\stm32f1xx_hal_dma.o"
+"part2_oled\stm32f1xx_hal_cortex.o"
+"part2_oled\stm32f1xx_hal_pwr.o"
+"part2_oled\stm32f1xx_hal_flash.o"
+"part2_oled\stm32f1xx_hal_flash_ex.o"
+"part2_oled\stm32f1xx_hal_exti.o"
+"part2_oled\stm32f1xx_hal_tim.o"
+"part2_oled\stm32f1xx_hal_tim_ex.o"
+"part2_oled\system_stm32f1xx.o"
+"part2_oled\ssd1306.o"
+"part2_oled\fonts.o"
+--strict --scatter "part2_oled\part2_oled.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "part2_oled.map" -o part2_oled\part2_oled.axf
