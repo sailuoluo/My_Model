@@ -26,4 +26,5 @@ part2_oled/main.o: ..\Core\Src\main.c ..\Core\Inc\main.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash_ex.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_i2c.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pwr.h \
-  ..\Core\Inc\i2c.h ..\Core\Inc\gpio.h
+  ..\Core\Inc\i2c.h ..\Core\Inc\gpio.h ..\HARDWARE\ssd1306\ssd1306.h \
+  ..\HARDWARE\ssd1306\fonts.h

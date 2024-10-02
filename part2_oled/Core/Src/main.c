@@ -23,7 +23,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "ssd1306.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -90,12 +90,42 @@ int main(void)
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
 
+  // Init lcd using one of the stm32HAL i2c typedefs
+  if (ssd1306_Init(&hi2c1) != 0) {
+    Error_Handler();
+  }
+  HAL_Delay(1000);
+
+  ssd1306_Fill(Black);
+  ssd1306_UpdateScreen(&hi2c1);
+
+  HAL_Delay(1000);
+
+  // Write data to local screenbuffer
+  ssd1306_SetCursor(0, 0);
+  ssd1306_WriteString("ssd1306", Font_11x18, White);
+
+  ssd1306_SetCursor(0, 36);
+  ssd1306_WriteString("4ilo", Font_11x18, White);
+
+  // Draw rectangle on screen
+  for (uint8_t i=0; i<28; i++) {
+      for (uint8_t j=0; j<64; j++) {
+          ssd1306_DrawPixel(100+i, 0+j, White);
+      }
+  }
+
+  // Copy all data from local screenbuffer to the screen
+  ssd1306_UpdateScreen(&hi2c1);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+		HAL_Delay(500);
+		HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
